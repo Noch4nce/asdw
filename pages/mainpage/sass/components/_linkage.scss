@@ -1,0 +1,706 @@
+$color-primary: #F1CDB3;
+$color-primary-light:#FDDCC4;
+
+$color-light-s: #FAFAFA;
+$color-light-l:#F6F6F6;
+$color-light-xl:#FFFFFF;
+
+$color-dark-s:#CDCDCD;
+$color-dark-m:#B2B2B2;
+$color-dark-l:#545454;
+$color-dark-xl:#4C4C4C;
+$color-dark-2xl:#444444;
+$color-dark-3xl: #292929;
+
+$start-screen-gradient-background: url(assets/noise.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+$footer-gradient-background: url(assets/noise.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+
+
+@mixin h2 {
+    font: {
+        family: Georgia, 'Times New Roman', Times, serif;
+        style: normal;
+        weight: 400;
+        size: 4.4rem;
+    }
+    line-height: 130%;
+}
+
+
+@mixin h3 {
+    font: {
+        family: Georgia, 'Times New Roman', Times, serif;
+        style: normal;
+        weight: normal;
+        size: 3.5rem;
+    }
+    line-height: 130%;
+    letter-spacing: 0.2rem;
+}
+
+@mixin h4 {
+    font: {
+        family: Georgia, 'Times New Roman', Times, serif;
+        style: normal;
+        weight: normal;
+        size: 2rem;
+    }
+    line-height: 115%;
+    letter-spacing: 0.06rem;
+}
+
+@mixin h5 {
+    font: {
+        family: Georgia, 'Times New Roman', Times, serif;
+        style: normal;
+        weight: normal;
+        size: 1.5rem;
+    }
+    line-height: 110%;
+    letter-spacing: 0.06rem;
+}
+
+@mixin paragraph-l {
+    font: {
+        family: Arial, Helvetica, sans-serif;
+        style: normal;
+        weight: normal;
+        size: 1.5rem;
+    }
+    line-height: 160%;
+}
+
+@mixin paragraph-s {
+    font: {
+        family: Arial, Helvetica, sans-serif;
+        style: italic;
+        weight: normal;
+        size: 1.2rem;
+    }
+    line-height: 150%;
+}
+
+@mixin logo_title {
+    font: {
+        family: Georgia, 'Times New Roman', Times, serif;
+        style: normal;
+        weight: normal;
+        size: 3.2rem;
+    }
+    line-height: 110%;
+    letter-spacing: 0.2rem;
+}
+
+@mixin logo_subtitle {
+    font: {
+        family: Arial, Helvetica, sans-serif;
+        style: normal;
+        weight: normal;
+        size: 1.3rem;
+    }
+    line-height: 110%;
+    letter-spacing: 0.13rem;
+}
+
+@mixin slider_button {
+    border: 0.2rem solid $color-primary;
+    border-radius: 100%;
+    background: none;
+}
+
+
+
+
+:root {
+    font-size: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+.wrapper {
+    display: flex;
+    margin: 0 auto;
+    max-width: 120rem;
+    flex: 1;
+    justify-content: space-between;
+}
+
+h1 {
+    position: absolute;
+    clip: rect(0px, 0px, 0px, 0px);
+    clip-path: inset(0px 0px 99.9% 99.9%);
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    display: block;
+    font-size: 2em;
+    padding: 0;
+    margin: -1px;
+    border: 0;
+}
+
+.header {
+    width: 100vw;
+    max-width: 100%;
+    position: absolute;
+    top: 6rem;
+}
+
+.menu {
+    width: 44.3rem;
+    display: flex;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        color: $color-primary;
+        @include logo_title;
+    }
+
+    &__subtitle {
+        margin-top: 1rem;
+        color: $color-light-xl;
+        text-align: center;
+        @include logo_subtitle;
+    }
+}
+
+.list {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    list-style-type: none;
+
+    .list__item {
+        display: flex;
+        align-items: center;
+
+        .list__link {
+            color: $color-light-xl;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            line-height: 160%;
+
+            &_active {
+                border-bottom: solid 0.3rem $color-primary;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            &_disabled {
+                line-height: 160%;
+                font-style: normal;
+                font-weight: normal;
+                color: $color-dark-s;
+                &:hover {
+                    cursor: pointer;
+                    transition: 0.4s;
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero {
+    padding-top: 18rem;
+    display: flex;
+    background: $start-screen-gradient-background;
+
+    &__content {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__image-wrapper {
+        display: flex;
+    }
+
+    &__image {
+        width: 100%;
+        max-width: 69.8rem;
+        max-height: 72.8rem;
+    }
+}
+
+.content-section {
+    padding-bottom: 8rem;
+    max-width: 46.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__title {
+        max-width: 31rem;
+        color: $color-light-xl;
+        @include h2;
+    }
+
+    &__subtitle {
+        margin-top: 4.2rem;
+        font-size: 1.5rem;
+        color: $color-dark-s;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 160%;
+    }
+
+    &__button {
+        font-family: Georgia;
+        font-style: normal;
+        font-weight: normal;
+        padding: 1.5rem 4.5rem;
+        margin-top: 4rem;
+        font-size: 1.7rem;
+        background-color: $color-primary;
+        border-radius: 10rem;
+        line-height: 130%;
+        letter-spacing: 0.1rem;
+        border: none;
+        &:hover {
+            background-color: $color-primary-light;
+            cursor: pointer;
+        }
+    }
+}
+
+.about {
+    display: flex;
+
+    &__wrapper {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        padding: 8rem 17.5rem 10rem 17.5rem;
+    }
+
+    & .wrapper {
+        justify-content: center;
+    }
+
+    &__image-wrapper{
+        display: flex;
+    }
+
+    &__image {
+        width: 100%;
+    }
+
+    &__content {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        max-width: 43rem;
+    }
+
+    &__title {
+        span {
+            display: block;
+        }
+        color: $color-dark-l;
+        @include h3;
+    }
+
+    &__description {
+        margin-top: 2.5rem;
+        p {
+            &:nth-child(2) {
+                margin-top: 2.5rem;
+            }
+            color: $color-dark-xl;
+            @include paragraph-l;
+        }
+    }
+}
+
+.pets {
+    padding-top: 8rem;
+    padding-bottom: 10rem;
+    background: $color-light-l;
+
+    &__wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__title {
+        max-width: 40rem;
+        text-align: center;
+
+        span {
+            display: block;
+        }
+
+        color: $color-dark-l;
+        @include h3;
+    }
+
+    &__content {
+        display: flex;
+    }
+
+    &__slider_button {
+        align-self: center;
+        max-width: 5.2rem;
+        max-height: 5.2rem;
+        @include slider_button;
+        img {
+            padding: 2.1rem 1.6rem
+        }
+        &:hover {
+            cursor: pointer;
+            background-color: $color-primary-light;
+        }
+    }
+
+    &__slider_button_reverted {
+        align-self: center;
+        max-width: 5.2rem;
+        max-height: 5.2rem;
+        transform: rotate(180deg);
+        @include slider_button;
+        img {
+            padding: 2.1rem 1.8rem
+        }
+        &:hover {
+            cursor: pointer;
+            background-color: $color-primary-light;
+        }
+
+    }
+
+    &__cards {
+        margin: 5.7rem 5.4rem;
+        display: flex;
+        text-align: center;
+
+
+        h4 {
+            padding: 3rem 0;
+            @include h4;
+        }
+
+        button {
+            margin-bottom: 3rem;
+            font-family: Georgia;
+            font-style: normal;
+            font-weight: normal;
+            padding: 1.4rem 4.5rem;
+            border: 0.2rem solid #F1CDB3;
+            border-radius: 10rem;
+            font-size: 1.7rem;
+            line-height: 130%;
+            letter-spacing: 0.06rem;
+            color: $color-dark-3xl;
+            background: none;
+        }
+        &_katrine {
+            background: $color-light-s;
+            border-radius: 0.9rem;
+            img {
+                width: 100%;
+
+            }
+            &:hover {
+                background-color: $color-light-xl;
+                cursor: pointer;
+            }
+        }
+
+        &_jennifer {
+            background: $color-light-s;
+            border-radius: 0.9rem;
+            margin: 0 9rem;
+            img {
+                width: 100%;
+            }
+            &:hover {
+                background-color: $color-light-xl;
+                cursor: pointer;
+            }
+        }
+
+        &_woody {
+            background: $color-light-s;
+            border-radius: 0.9rem;
+            img {
+                width: 100%;
+            }
+            &:hover {
+                background-color: $color-light-xl;
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__button {
+        padding: 1.7rem 4.5rem;
+        background: $color-primary;
+        border-radius: 10rem;
+        font-family: Georgia;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1.7rem;
+        line-height: 130%;
+        letter-spacing: 0.1rem;
+        color: $color-dark-3xl;
+        border: none;
+        &:hover {
+            cursor: pointer;
+            background-color: $color-primary-light;
+        }
+    }
+}
+
+.help {
+    padding-top: 8rem;
+    padding-bottom: 10rem;
+    background: $color-light-xl;
+
+    &__wrapper {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__title {
+        text-align: center;
+
+        span {
+            display: block;
+        }
+
+        color: $color-dark-l;
+        @include h3;
+    }
+
+    &__content {
+        margin-top: 6rem;
+
+        &_up {
+            margin-bottom: 5.5rem;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+
+            h4 {
+                padding-top: 3rem;
+                color: $color-dark-l;
+                @include h4;
+                letter-spacing: 0.12rem;
+                line-height: 90%;
+            }
+
+            &-food {
+                padding-right: 12rem;
+            }
+            &-transport {
+                padding-right: 12rem;
+            }
+            &-toys {
+                padding-right: 12rem;
+            }
+            &-bowls {
+                padding-right: 12rem;
+            }
+        }
+
+        &_down {
+            display: flex;
+            text-align: center;
+            justify-content: center;
+
+            h4 {
+                padding-top: 3rem;
+                color: $color-dark-l;
+                @include h4;
+                letter-spacing: 0.12rem;
+                line-height: 90%;
+            }
+
+            &-vitamins {
+                padding-right: 12rem;
+            }
+            &-medicines {
+                padding-right: 12rem;
+            }
+            &-collars {
+                padding-right: 12rem;
+            }
+        }
+    }
+}
+
+.donation {
+    padding-top: 8rem;
+    padding-bottom: 10rem;
+    background: $color-light-l;
+
+    &__wrapper {
+        margin-top: 0.7rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__image {
+        padding-right: 3rem;
+    }
+
+    &__content {
+        h3 {
+            color: $color-dark-l;
+            @include h3;
+            span {
+                display: block;
+            }
+        }
+        h5 {
+            padding: 2rem 0;
+            @include h5;
+            color: $color-dark-l;
+            letter-spacing: 0.08rem;
+        }
+
+        &_pay {
+            max-width: 34.9rem;
+            max-height: 4.3rem;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+
+            background: $color-primary;
+            border-radius: 0.9rem;
+            h4 {
+                padding-left: 1.5rem;
+                @include h4;
+                color: $color-dark-l;
+                letter-spacing: 0.11rem;
+            }
+            &:hover {
+                background-color: $color-primary-light;
+            }
+        }
+
+        &_description {
+        width: 38rem;
+        height: 7.2rem;
+        font-family: Arial;
+        font-style: italic;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 18px;
+        color: $color-dark-m;
+        }
+    }
+}
+
+.footer {
+    padding-top: 4rem;
+    background: $footer-gradient-background;
+
+    &__wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__contacts {
+        h3 {
+            padding-bottom: 4rem;
+            span {
+                display: block;
+            }
+            @include h3;
+            color: $color-light-xl;
+            line-height: 132%;
+        }
+        &_email {
+            padding-bottom: 4rem;
+            display: flex;
+            align-items: center;
+            h4 {
+                padding-left: 2rem;
+                @include h4;
+                color: $color-primary;
+                letter-spacing: 0.1rem;
+            }
+        }
+        &_phone {
+            padding-bottom: 5rem;
+            display: flex;
+            h4 {
+                padding-left: 2rem;
+                @include h4;
+                color: $color-primary;
+                letter-spacing: 0.1rem;
+                line-height: 160%;
+            }
+        }
+    }
+
+    &__location {
+        h3 {
+            margin-right: 44px;
+            padding-bottom: 3.6rem;
+            span {
+                display: block;
+            }
+            @include h3;
+            color: $color-light-xl;
+            letter-spacing: 0.2rem;
+            line-height: 128%;
+        }
+        &_boston {
+            padding-bottom: 3.5rem;
+            display: flex;
+            h4 {
+                padding-left: 2rem;
+                span {
+                    display: block;
+                }
+                @include h4;
+                color: $color-primary;
+                letter-spacing: 0.12rem;
+                line-height: 115%;
+            }
+        }
+        &_london {
+            padding-bottom: 4.6rem;
+            display: flex;
+            align-items: center;
+            h4 {
+                padding-left: 2rem;
+                @include h4;
+                color: $color-primary;
+                letter-spacing: 0.11rem;
+            }
+        }
+    }
+}
